@@ -29,7 +29,17 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 public class MainActivity extends Activity implements CvCameraViewListener2 {
+
     private static final String TAG = "OCVSample::Activity";
+
+    static{
+        if(OpenCVLoader.initDebug()){
+            Log.d(TAG, "OpenCV failed to load successfully");
+        }
+        else{
+            Log.d(TAG, "OpenCV loaded successfully");
+        }
+    }
 
     private CameraBridgeViewBase mOpenCvCameraView;
     private boolean              mIsJavaCamera = true;
